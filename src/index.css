@@ -9,15 +9,21 @@
   --color-background: hsl(0 0% 0%);
   --color-foreground: hsl(0 0% 100%);
   --color-muted-foreground: hsl(240 4% 66%);
-  --color-primary: hsl(0 0% 100%);
-  --color-primary-foreground: hsl(0 0% 4%);
+  --color-primary: hsl(265, 89%, 60%); /* Brand Purple */
+  --color-primary-foreground: hsl(0 0% 100%);
   --color-secondary: hsl(0 0% 10%);
   --color-muted: hsl(0 0% 10%);
-  --color-accent: hsl(0 0% 10%);
+  --color-accent: hsl(265, 89%, 60%);
   --color-border: hsl(0 0% 18%);
   --color-input: hsl(0 0% 18%);
+
+  /* Custom Brand Gradients */
+  --gradient-silver: linear-gradient(180deg, #FFFFFF 0%, #A5A5A5 100%);
+  --gradient-brand: linear-gradient(90deg, #FFFFFF 0%, #A855F7 100%);
+  --gradient-cta: linear-gradient(90deg, #A855F7 0%, #3B82F6 100%);
   
   --animate-fade-rise: fade-rise 0.8s ease-out both;
+
   --animate-fade-rise-delay: fade-rise 0.8s ease-out 0.2s both;
   --animate-fade-rise-delay-2: fade-rise 0.8s ease-out 0.4s both;
 
