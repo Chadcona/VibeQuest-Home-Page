@@ -1,78 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-
 @theme {
-  --font-display: "Instrument Serif", serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Manrope", sans-serif;
 
-  --color-background: hsl(0 0% 0%);
-  --color-foreground: hsl(0 0% 100%);
-  --color-muted-foreground: hsl(240 4% 66%);
-  --color-primary: hsl(265, 89%, 60%); /* Brand Purple */
-  --color-primary-foreground: hsl(0 0% 100%);
-  --color-secondary: hsl(0 0% 10%);
-  --color-muted: hsl(0 0% 10%);
-  --color-accent: hsl(265, 89%, 60%);
-  --color-border: hsl(0 0% 18%);
-  --color-input: hsl(0 0% 18%);
+  --color-background: hsl(208 36% 8%);
+  --color-foreground: hsl(192 18% 94%);
+  --color-muted-foreground: hsl(192 12% 65%);
+  --color-primary: hsl(184 76% 46%);
+  --color-primary-foreground: hsl(205 30% 6%);
+  --color-accent: hsl(42 95% 62%);
+  --color-secondary: hsl(205 26% 14%);
+  --color-muted: hsl(206 26% 12%);
+  --color-border: hsl(202 22% 22%);
+  --color-input: hsl(205 21% 17%);
 
-  /* Custom Brand Gradients */
-  --gradient-silver: linear-gradient(180deg, #FFFFFF 0%, #A5A5A5 100%);
-  --gradient-brand: linear-gradient(90deg, #FFFFFF 0%, #A855F7 100%);
-  --gradient-cta: linear-gradient(90deg, #A855F7 0%, #3B82F6 100%);
-  
-  --animate-fade-rise: fade-rise 0.8s ease-out both;
-
-  --animate-fade-rise-delay: fade-rise 0.8s ease-out 0.2s both;
-  --animate-fade-rise-delay-2: fade-rise 0.8s ease-out 0.4s both;
-
-  @keyframes fade-rise {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  --gradient-brand: linear-gradient(120deg, #f4f7fb 0%, #18a8ad 45%, #f3bb49 100%);
+  --gradient-mesh: radial-gradient(circle at 20% 10%, rgba(24, 168, 173, 0.22) 0%, rgba(10, 15, 21, 0) 48%),
+                   radial-gradient(circle at 80% 20%, rgba(243, 187, 73, 0.18) 0%, rgba(10, 15, 21, 0) 46%),
+                   radial-gradient(circle at 50% 100%, rgba(3, 78, 108, 0.25) 0%, rgba(10, 15, 21, 0) 52%);
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground font-body;
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
   }
+
   * {
     @apply border-border;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
   }
 }
 
 @layer components {
-  .liquid-glass {
-    background: rgba(255, 255, 255, 0.01);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
+  .glass-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(14px);
   }
 
-  .liquid-glass::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(180deg,
-      rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-      rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-      rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+  .glass-sub {
+    background: rgba(5, 16, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .chip {
+    @apply rounded-full px-4 py-2 text-sm font-semibold inline-flex items-center gap-2;
+    background: rgba(24, 168, 173, 0.16);
+    border: 1px solid rgba(24, 168, 173, 0.35);
+  }
+
+  .step-pill {
+    @apply text-xs font-semibold rounded-full px-3 py-1 border;
+    color: rgba(225, 238, 246, 0.58);
+    border-color: rgba(225, 238, 246, 0.18);
+  }
+
+  .step-pill--active {
+    color: #06131b;
+    border-color: rgba(243, 187, 73, 0.8);
+    background: rgba(243, 187, 73, 0.95);
+  }
+
+  .field {
+    @apply block text-sm font-semibold text-foreground/85;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    @apply w-full mt-2 rounded-xl px-3 py-2.5 text-sm;
+    background: rgba(6, 17, 24, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #e7f2fb;
+    outline: none;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: rgba(24, 168, 173, 0.85);
+    box-shadow: 0 0 0 2px rgba(24, 168, 173, 0.2);
+  }
+
+  .addon-btn {
+    @apply rounded-xl px-3 py-2 text-sm font-semibold text-left transition-colors;
+    background: rgba(7, 22, 31, 0.64);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(228, 239, 247, 0.8);
+  }
+
+  .addon-btn--active {
+    color: #041218;
+    background: rgba(243, 187, 73, 0.95);
+    border-color: rgba(243, 187, 73, 0.95);
+  }
+
+  .primary-btn {
+    @apply rounded-xl px-5 py-2.5 font-bold text-black;
+    background: hsl(42 95% 62%);
+  }
+
+  .ghost-btn {
+    @apply rounded-xl px-5 py-2.5 font-bold border;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(232, 241, 248, 0.85);
+    background: rgba(255, 255, 255, 0.03);
   }
 }

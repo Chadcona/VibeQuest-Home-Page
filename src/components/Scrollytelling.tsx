@@ -155,8 +155,8 @@ const Scrollytelling: React.FC<ScrollytellingProps> = ({ frameCount }) => {
       {/* Loading Overlay */}
       {!isLoaded && (
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black text-white">
-          <div className="text-4xl font-light mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
-            Velorah
+          <div className="text-4xl font-light mb-4" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
+            DJ CONA
           </div>
           <div className="w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
             <div 
@@ -165,7 +165,7 @@ const Scrollytelling: React.FC<ScrollytellingProps> = ({ frameCount }) => {
             />
           </div>
           <div className="mt-4 text-xs tracking-widest uppercase opacity-40 font-medium">
-            Loading Cinematic - {loadProgress}%
+            Loading Event Reel - {loadProgress}%
           </div>
         </div>
       )}
@@ -185,4 +185,3 @@ const Scrollytelling: React.FC<ScrollytellingProps> = ({ frameCount }) => {
 };
 
 export default Scrollytelling;
-
